@@ -32,47 +32,53 @@ Basegrid[2][4] = false
 Basegrid[9][3] = false
 
 
-#ask for input
-puts ("Pick a coordinate x")
-x_choice = gets.chomp.to_i
-puts ("Pick a coordinate y")
-y_choice = gets.chomp.to_i
-
-#change board
-
-
 Newgrid = Array.new(10){Array.new(10){true}}
-if Basegrid[x_choice][y_choice] == false
+looping = true
 
-	system "clear"
-	print "\n"
-	Newgrid[x_choice][y_choice] = false
-	
-	
-	Newgrid.each do |array|
-		array.each do |y|
-		if y == false
-			print "*"
-		  else 
-			print "0"
-		 end
+while looping do
+	#ask for input
+	puts ("Pick a coordinate x")
+	x_choice = gets.chomp.to_i
+	puts ("Pick a coordinate y")
+	y_choice = gets.chomp.to_i
+
+	#change board
+
+
+	if Basegrid[x_choice][y_choice] == false
+
+		system "clear"
+		print "\n"
+		Newgrid[x_choice][y_choice] = false
+		
+
+		Newgrid.each do |array|
+			array.each do |y|
+			if y == false
+				print "*"
+			  else 
+				print "0"
+			 end
+			end
+			print "\n"	
 		end
-		print "\n"	
-	end
-	
-	print "\n"
-else 
+		
+		print "\n"
 
-	puts "Sorry, that was a miss! Would you like to try again? Type 'yes' or 'no'"
-	input = gets.chomp
-	if input == "yes" then abort()
+	else 
+
+		puts "Sorry, that was a miss! Would you like to try again? Type 'yes' or 'no'"
+		input = gets.chomp
+		if input == "no" then abort()
+		end
 	end
 	
+	puts "Would you like to try to hit another ship? Type 'yes' or 'no'"
+	choice = gets.chomp
+		if choice == "no"
+		looping = false
+		end
+		
 end
 
-
-
 	
-
-
-#create loop
