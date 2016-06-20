@@ -41,16 +41,17 @@ y_choice = gets.chomp.to_i
 #change board
 
 
-Newgrid = Array.new(10){Array.new(10)}
+Newgrid = Array.new(10){Array.new(10){true}}
 if Basegrid[x_choice][y_choice] == false
 
 	system "clear"
 	print "\n"
-	Newgrid[x_choice][y_choice] = true
+	Newgrid[x_choice][y_choice] = false
+	
 	
 	Newgrid.each do |array|
 		array.each do |y|
-		 if Newgrid[x_choice][y_choice] == true
+		if y == false
 			print "*"
 		  else 
 			print "0"
